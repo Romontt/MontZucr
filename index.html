@@ -3,181 +3,190 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MontZu CR ofrece asesoría profesional para trámites de visas en Costa Rica de manera rápida, segura y confiable.">
 
 <title>MontZu CR | Asesoría de Visas</title>
 
 <style>
-
-body{
-margin:0;
-font-family:'Segoe UI', Arial, sans-serif;
-background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-color:white;
+/* GENERAL */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
 }
 
 /* HERO */
-
-.hero{
-text-align:center;
-padding:100px 20px 60px 20px;
+.hero {
+  text-align: center;
+  padding: 100px 20px 60px 20px;
+  transition: all 0.3s ease;
 }
 
-.logo{
-font-size:50px;
-font-weight:bold;
-letter-spacing:2px;
+.logo {
+  font-size: 50px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
 }
 
-.subtitle{
-font-size:20px;
-opacity:0.9;
-margin-top:15px;
-margin-bottom:30px;
+.subtitle {
+  font-size: 20px;
+  opacity: 0.9;
+  margin-bottom: 30px;
 }
 
-.btn-main{
-background:#00c6ff;
-background: linear-gradient(90deg, #00c6ff, #0072ff);
-padding:15px 35px;
-border-radius:10px;
-color:white;
-text-decoration:none;
-font-size:18px;
-font-weight:bold;
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
-transition:0.3s;
+.btn-main {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  padding: 15px 35px;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: 0.3s;
 }
 
-.btn-main:hover{
-transform:scale(1.05);
+.btn-main:hover {
+  transform: scale(1.05);
 }
 
 /* SERVICES */
-
-.services{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:30px;
-padding:50px 20px;
+.services {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 50px 20px;
 }
 
-.card{
-background:white;
-color:#333;
-width:320px;
-padding:35px;
-border-radius:15px;
-box-shadow:0 15px 35px rgba(0,0,0,0.3);
-transition:0.3s;
-text-align:center;
+.card {
+  background: white;
+  color: #333;
+  width: 320px;
+  padding: 35px;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  transition: 0.3s;
+  text-align: center;
 }
 
-.card:hover{
-transform:translateY(-10px);
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-.card h3{
-font-size:24px;
-margin-bottom:10px;
+.card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-.card p{
-font-size:16px;
-margin-bottom:20px;
+.card p {
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
-.badge{
-background:#ffc107;
-color:#333;
-padding:5px 10px;
-border-radius:6px;
-font-size:12px;
-font-weight:bold;
+.badge {
+  background: #ffc107;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 /* WHATSAPP BUTTON */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
 
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px 20px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
+.whatsapp:hover {
+  transform: scale(1.1);
 }
 
 /* FOOTER */
-
-footer{
-text-align:center;
-padding:30px;
-opacity:0.8;
+footer {
+  text-align: center;
+  padding: 30px;
+  opacity: 0.8;
 }
 
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .hero {
+    padding: 60px 15px 40px 15px;
+  }
+  .logo {
+    font-size: 36px;
+  }
+  .subtitle {
+    font-size: 16px;
+  }
+  .btn-main {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+  .services {
+    gap: 20px;
+  }
+  .card {
+    width: 90%;
+    padding: 25px;
+  }
+}
 </style>
 
 </head>
 <body>
 
+<!-- HERO -->
 <section class="hero">
-
-<div class="logo">MontZu CR</div>
-
-<div class="subtitle">
-Asesoría profesional para trámites de visa de forma rápida, segura y confiable
-</div>
-
-<a href="https://wa.me/50661961136" class="btn-main">
-Solicitar Asesoría
-</a>
-
+  <div class="logo">MontZu CR</div>
+  <div class="subtitle">
+    Asesoría profesional para trámites de visa de forma rápida, segura y confiable
+  </div>
+  <a href="/visas" class="btn-main">
+    Solicitar Asesoría
+  </a>
 </section>
 
+<!-- SERVICES -->
 <section class="services">
 
-<div class="card">
+  <div class="card">
+    <h3>Asesoría de Visas</h3>
+    <p>Te ayudamos con el proceso completo de solicitud de visa paso a paso.</p>
+    <a href="/visas" class="btn-main">Más Información</a>
+  </div>
 
-<h3>Asesoría de Visas</h3>
-
-<p>
-Te ayudamos con el proceso completo de solicitud de visa paso a paso.
-</p>
-
-<a href="https://wa.me/50661961136" class="btn-main">
-Contactar por WhatsApp
-</a>
-
-</div>
-
-<div class="card">
-
-<h3>Invitaciones Digitales</h3>
-
-<p>
-Invitaciones elegantes y modernas para tus eventos especiales.
-</p>
-
-<span class="badge">Muy Pronto</span>
-
-</div>
+  <div class="card">
+    <h3>Invitaciones Digitales</h3>
+    <p>Invitaciones elegantes y modernas para tus eventos especiales.</p>
+    <span class="badge">Muy Pronto</span>
+  </div>
 
 </section>
 
+<!-- WHATSAPP BUTTON -->
 <a href="https://wa.me/50661961136" class="whatsapp">
-WhatsApp
+  WhatsApp
 </a>
 
+<!-- FOOTER -->
 <footer>
-
-© 2026 MontZu CR - Costa Rica
-
+  © 2026 MontZu CR - Costa Rica
 </footer>
 
 </body>
 </html>
-
