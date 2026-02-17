@@ -17,45 +17,61 @@ body {
 .hero {
   display: flex;
   flex-direction: column;
-  padding: 60px 40px;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px; /* hero más pequeño */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364), url('usa-background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
   color: white;
 }
 
-/* LOGO + NOMBRE ARRIBA */
-.hero-top {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 15px;
-  margin-bottom: 40px;
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(15,32,39,0.6); /* oscurece un poco la imagen */
+  z-index: 0;
 }
 
-.hero-top img {
-  width: 150px; /* logo más grande */
+/* Contenido del hero sobre el fondo */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Logo y nombre */
+.hero-content img {
+  width: 150px;
   max-width: 180px;
   background: transparent;
   display: block;
 }
 
-.hero-top h1 {
-  font-size: 40px;
+.hero-content h1 {
+  font-size: 42px;
   font-weight: bold;
   letter-spacing: 2px;
   margin: 0;
   text-shadow: 0 3px 8px rgba(0,0,0,0.5);
 }
 
-/* SUBTÍTULO */
-.hero p {
+/* Subtítulo */
+.hero-content p {
   font-size: 20px;
   opacity: 0.9;
   max-width: 600px;
-  margin-bottom: 30px;
-  text-align: center;
 }
 
-/* BOTÓN */
+/* Botón */
 .btn-main {
   background: linear-gradient(90deg, #00c6ff, #0072ff);
   padding: 15px 35px;
@@ -226,17 +242,12 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <!-- Logo y nombre arriba a la izquierda -->
-  <div class="hero-top">
+  <div class="hero-content">
     <img src="imagen1.png" alt="Visas MontZu Logo">
     <h1>Visas MontZu</h1>
+    <p>Asesoría profesional y confiable para trámites de visas de turismo y tránsito.</p>
+    <a href="#contacto" class="btn-main">Solicitar Asesoría</a>
   </div>
-
-  <!-- Subtítulo centrado debajo -->
-  <p>Asesoría profesional y confiable para trámites de visas de turismo y tránsito.</p>
-
-  <!-- Botón principal -->
-  <a href="#contacto" class="btn-main">Solicitar Asesoría</a>
 </section>
 
 <!-- SERVICES -->
