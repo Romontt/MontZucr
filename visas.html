@@ -20,8 +20,8 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 60px 20px; /* hero más pequeño */
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364), url('usa-background.png');
+  padding: 40px 20px; /* Hero más pequeño */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364), url('hero-usa.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -34,11 +34,11 @@ body {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(15,32,39,0.6); /* oscurece un poco la imagen */
+  background: rgba(15,32,39,0.5); /* oscurece un poco la imagen */
   z-index: 0;
 }
 
-/* Contenido del hero sobre el fondo */
+/* Contenido del hero */
 .hero-content {
   position: relative;
   z-index: 1;
@@ -48,15 +48,21 @@ body {
   gap: 20px;
 }
 
-/* Logo y nombre */
-.hero-content img {
-  width: 150px;
-  max-width: 180px;
+/* Logo + Nombre a la par */
+.logo-name {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo-name img {
+  width: 180px; /* logo más grande */
+  max-width: 200px;
   background: transparent;
   display: block;
 }
 
-.hero-content h1 {
+.logo-name h1 {
   font-size: 42px;
   font-weight: bold;
   letter-spacing: 2px;
@@ -243,8 +249,10 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <img src="imagen1.png" alt="Visas MontZu Logo">
-    <h1>Visas MontZu</h1>
+    <div class="logo-name">
+      <img src="imagen1.png" alt="Visas MontZu Logo">
+      <h1>Visas MontZu</h1>
+    </div>
     <p>Asesoría profesional y confiable para trámites de visas de turismo y tránsito.</p>
     <a href="#contacto" class="btn-main">Solicitar Asesoría</a>
   </div>
