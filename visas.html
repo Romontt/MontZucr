@@ -4,307 +4,223 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Visas MontZu | Asesoría Profesional</title>
+<title>Visas MontZu</title>
 
-<!-- FUENTE PROFESIONAL -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<!-- Fuente Satisfy -->
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
 
 <style>
 
-html{
-scroll-behavior:smooth;
-}
-
+/* RESET */
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
-font-family:'Segoe UI', Arial, sans-serif;
-background: linear-gradient(135deg,#0f172a,#1e293b,#0f172a);
-color:white;
+font-family: Arial, sans-serif;
 }
 
 /* NAVBAR */
-
 .navbar{
 
 position:fixed;
 top:0;
 width:100%;
-padding:0.8px 40px;
 
 display:flex;
 justify-content:space-between;
 align-items:center;
 
-background:rgba(15,23,42,0.75);
-backdrop-filter: blur(12px);
+padding:6px 25px; /* REDUCIDO A LA MITAD */
 
-border-bottom:1px solid rgba(255,255,255,0.1);
+background:rgba(255,255,255,0.85);
+backdrop-filter: blur(10px);
+
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
 
 z-index:1000;
 
-transition:all 0.35s ease;
-}
-
-/* PREMIUM EFFECT ON SCROLL */
-
-.navbar.scrolled{
-
-background:rgba(15,23,42,0.95);
-
-box-shadow:0 10px 30px rgba(0,0,0,0.6);
-
-border-bottom:1px solid rgba(56,189,248,0.3);
+transition: all 0.3s ease;
 
 }
 
-/* LOGO */
-
+/* Logo contenedor */
 .logo{
 display:flex;
 align-items:center;
-gap:15px;
+gap:10px;
 }
 
+/* Imagen logo */
 .logo img{
-width:160px;
-max-width:45vw;
-transition:0.3s;
+
+height:48px; /* LOGO GRANDE IGUAL QUE ANTES */
+
 }
 
-.logo img:hover{
-transform:scale(1.05);
-}
-
-/* TEXTO PROFESIONAL */
-
+/* Texto logo */
 .logo-text{
 
-font-family:'Poppins', sans-serif;
+font-family:'Satisfy', cursive;
 
 font-size:28px;
 
-font-weight:600;
-
-letter-spacing:0.5px;
-
-background: linear-gradient(90deg,#60a5fa,#38bdf8,#0ea5e9);
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+color:#0b3d91;
 
 }
 
-/* NAV LINKS */
+/* MENU */
+.menu{
 
-.nav-right{
 display:flex;
-align-items:center;
-gap:30px;
+gap:25px;
+
 }
 
-.nav-right a{
-color:white;
+.menu a{
+
 text-decoration:none;
+
+color:#333;
+
 font-weight:500;
-opacity:0.9;
+
 transition:0.3s;
+
 }
 
-.nav-right a:hover{
-color:#38bdf8;
+.menu a:hover{
+
+color:#0b3d91;
+
 }
 
-/* BUTTON */
+/* BOTON NAVBAR */
 
-.nav-btn{
-background: linear-gradient(90deg,#2563eb,#38bdf8);
-padding:10px 22px;
-border-radius:8px;
+.nav-button{
+
+background:#0b3d91;
+
 color:white;
+
+padding:8px 16px;
+
+border-radius:6px;
+
 text-decoration:none;
-font-weight:bold;
+
+font-weight:500;
+
 transition:0.3s;
+
 }
 
-.nav-btn:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px rgba(56,189,248,0.6);
-}
+.nav-button:hover{
 
-/* HAMBURGER */
+background:#082c6c;
 
-.hamburger{
-display:none;
-font-size:30px;
-cursor:pointer;
 }
 
 /* HERO */
 
 .hero{
 
-margin-top:120px;
-min-height:45vh;
+height:100vh;
+
+background:url("https://images.unsplash.com/photo-1483721310020-03333e577078?q=80&w=1920") center/cover no-repeat;
 
 display:flex;
+
 align-items:center;
+
 justify-content:center;
+
 text-align:center;
 
-background:
-linear-gradient(rgba(15,23,42,0.45), rgba(15,23,42,0.65)),
-url('https://images.unsplash.com/photo-1508433957232-3107f5fd5995?q=80&w=2070&auto=format&fit=crop');
+padding:20px;
 
-background-size:cover;
-background-position:center;
 }
 
 .hero-content{
-max-width:750px;
-padding:20px;
+
+background:rgba(255,255,255,0.85);
+
+padding:30px;
+
+border-radius:10px;
+
+animation:fadeUp 1s ease;
+
 }
 
-.hero-text{
-font-size:28px;
-font-weight:600;
-line-height:1.4;
-text-shadow:0 0 15px rgba(0,0,0,0.6);
-}
+/* ANIMACIONES */
 
-/* SECTIONS */
+@keyframes fadeUp{
 
-.section{
-
-padding:70px 20px;
-text-align:center;
-
+from{
 opacity:0;
-transform:translateY(40px);
-transition:all 0.8s ease;
+transform:translateY(30px);
 }
 
-.section.visible{
-
+to{
 opacity:1;
 transform:translateY(0);
 }
 
-.section h2{
-font-size:32px;
-margin-bottom:40px;
-}
-
-/* CARDS */
-
-.cards{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:30px;
-}
-
-.card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.1);
-padding:30px;
-width:320px;
-border-radius:15px;
-transition:0.3s;
-backdrop-filter:blur(10px);
-}
-
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 15px 35px rgba(0,0,0,0.5);
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:15px 18px;
-border-radius:50%;
-text-decoration:none;
-color:white;
-font-size:22px;
-box-shadow:0 0 15px rgba(0,0,0,0.4);
-transition:0.3s;
-}
-
-.whatsapp:hover{
-transform:scale(1.1);
-}
-
-/* FOOTER */
-
-footer{
-text-align:center;
-padding:30px;
-opacity:0.7;
 }
 
 /* MOBILE */
 
-@media(max-width:768px){
+.hamburger{
 
-.logo img{
-width:120px;
+display:none;
+
+font-size:26px;
+
+cursor:pointer;
+
 }
 
-.logo-text{
-font-size:22px;
+@media(max-width:768px){
+
+.menu{
+
+position:absolute;
+
+top:60px;
+
+right:0;
+
+background:white;
+
+flex-direction:column;
+
+width:200px;
+
+padding:15px;
+
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+display:none;
+
+}
+
+.menu.active{
+
+display:flex;
+
 }
 
 .hamburger{
+
 display:block;
-}
 
-.nav-right{
-
-position:absolute;
-top:70px;
-right:0;
-
-background:rgba(15,23,42,0.98);
-
-width:100%;
-
-flex-direction:column;
-align-items:center;
-
-gap:20px;
-padding:20px;
-
-display:none;
-}
-
-.nav-right.active{
-display:flex;
-}
-
-.hero{
-min-height:40vh;
-margin-top:100px;
-}
-
-.hero-text{
-font-size:22px;
-}
-
-.section h2{
-font-size:26px;
-}
-
-.card{
-width:90%;
 }
 
 }
@@ -314,125 +230,56 @@ width:90%;
 </head>
 <body>
 
-<div class="navbar" id="navbar">
+<!-- NAVBAR -->
+<div class="navbar">
 
 <div class="logo">
-<img src="imagen1.png">
-<div class="logo-text">Visas MontZu</div>
+
+<img src="logo.png">
+
+<span class="logo-text">Visas MontZu</span>
+
+</div>
+
+<div class="menu" id="menu">
+
+<a href="#inicio">Inicio</a>
+
+<a href="#servicios">Servicios</a>
+
+<a href="#contacto">Contacto</a>
+
+<a href="#contacto" class="nav-button">Solicitar asesoría</a>
+
 </div>
 
 <div class="hamburger" onclick="toggleMenu()">
 ☰
 </div>
 
-<div class="nav-right" id="navMenu">
-
-<a href="#servicios">Servicios</a>
-
-<a href="#contacto">Contacto</a>
-
-<a href="https://wa.me/50661961136" class="nav-btn">
-Solicitar Asesoría
-</a>
-
 </div>
 
-</div>
-
-<section class="hero">
+<!-- HERO -->
+<section class="hero" id="inicio">
 
 <div class="hero-content">
 
-<div class="hero-text">
-
-Asesoría profesional para visas de turista y tránsito a Estados Unidos.  
+<h2>
+Asesoría profesional para visas de turista y tránsito a Estados Unidos.
 Proceso guiado, claro y confiable.
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section" id="servicios">
-
-<h2>Servicios</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Visa de Turista</h3>
-<p>Asesoría completa en formulario DS-160, preparación y guía paso a paso.</p>
-</div>
-
-<div class="card">
-<h3>Visa de Tránsito</h3>
-<p>Asesoría completa para visas de tránsito en aeropuertos de Estados Unidos.</p>
-</div>
+</h2>
 
 </div>
 
 </section>
-
-<section class="section" id="contacto">
-
-<h2>Contacto</h2>
-
-<p>
-Contáctanos directamente por WhatsApp para iniciar tu proceso.
-</p>
-
-<br>
-
-<a href="https://wa.me/50661961136" class="nav-btn">
-Contactar por WhatsApp
-</a>
-
-</section>
-
-<a href="https://wa.me/50661961136" class="whatsapp">
-💬
-</a>
-
-<footer>
-© 2026 Visas MontZu | Costa Rica
-</footer>
 
 <script>
 
 function toggleMenu(){
-document.getElementById("navMenu").classList.toggle("active");
+
+document.getElementById("menu").classList.toggle("active");
+
 }
-
-window.addEventListener("scroll", function(){
-
-const navbar = document.getElementById("navbar");
-
-if(window.scrollY > 50){
-navbar.classList.add("scrolled");
-}else{
-navbar.classList.remove("scrolled");
-}
-
-});
-
-const sections = document.querySelectorAll(".section");
-
-const observer = new IntersectionObserver(entries => {
-
-entries.forEach(entry => {
-
-if(entry.isIntersecting){
-entry.target.classList.add("visible");
-}
-
-});
-
-}, { threshold: 0.15 });
-
-sections.forEach(section => {
-observer.observe(section);
-});
 
 </script>
 
