@@ -18,7 +18,7 @@ body{
   font-family:'Segoe UI', Arial, sans-serif;
   background: linear-gradient(135deg,#0f172a,#1e293b,#0f172a);
   color:white;
-  padding-bottom:100px; /* espacio extra al final para el WhatsApp */
+  padding-bottom:0; /* ya no necesitamos padding extra */
 }
 
 /* NAVBAR */
@@ -33,6 +33,7 @@ body{
   box-shadow:0 10px 30px rgba(0,0,0,0.6);
   border-bottom:1px solid rgba(56,189,248,0.3);
 }
+
 /* LOGO */
 .logo{display:flex; align-items:center; gap:0; position:relative;}
 .logo img{height:80px; width:auto; display:block; transition:0.3s;}
@@ -43,6 +44,7 @@ body{
   -webkit-background-clip:text; -webkit-text-fill-color:transparent;
   text-shadow:0 0 12px rgba(56,189,248,0.25);
 }
+
 /* NAV LINKS */
 .nav-right{display:flex; align-items:center; gap:22px;}
 .nav-right a{color:white; text-decoration:none; font-weight:500; opacity:0.9; transition:0.3s; font-size:15px;}
@@ -72,33 +74,15 @@ body{
 
 /* FLIP CARDS */
 .cards{display:flex; justify-content:center; flex-wrap:wrap; gap:30px;}
-
-/* Tarjeta completa */
-.flip-card{
-  background: transparent; width:320px; height:400px; perspective:1000px;
-}
-
-/* Interior */
-.flip-card-inner{
-  position: relative; width: 100%; height: 100%;
-  transition: transform 1.2s ease-in-out; /* Animación más lenta y suave */
-  transform-style: preserve-3d;
-}
-
-/* Rotar al hover / click */
+.flip-card{background: transparent; width:320px; height:400px; perspective:1000px;}
+.flip-card-inner{position: relative; width: 100%; height: 100%; transition: transform 1.2s ease-in-out; transform-style: preserve-3d;}
 .flip-card:hover .flip-card-inner,
-.flip-card:active .flip-card-inner{
-  transform: rotateY(180deg);
-}
-
-/* Frente y reverso */
+.flip-card:active .flip-card-inner{transform: rotateY(180deg);}
 .flip-card-front, .flip-card-back{
   position:absolute; width:100%; height:100%; border-radius:20px;
   backface-visibility:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px;
   text-align:center;
 }
-
-/* Frente */
 .flip-card-front{
   background: rgba(255,255,255,0.08);
   border:1px solid rgba(255,255,255,0.15); backdrop-filter: blur(12px);
@@ -106,24 +90,8 @@ body{
 }
 .flip-card-front i{font-size:60px; color:#38bdf8; margin-bottom:20px;}
 .flip-card-front p{margin-top:10px;}
-
-/* Indicador de toque en móviles */
-.touch-hint{
-  display:none;
-  margin-top:10px;
-  font-size:14px;
-  color:#ffffffcc;
-  font-weight:500;
-  animation: blink 1.5s infinite;
-}
-
-/* Animación parpadeo */
-@keyframes blink{
-  0%,50%,100%{opacity:1;}
-  25%,75%{opacity:0.3;}
-}
-
-/* Reverso */
+.touch-hint{display:none; margin-top:10px; font-size:14px; color:#ffffffcc; font-weight:500; animation: blink 1.5s infinite;}
+@keyframes blink{0%,50%,100%{opacity:1;}25%,75%{opacity:0.3;}}
 .flip-card-back{
   background: rgba(56,189,248,0.85); color:#fff; transform: rotateY(180deg);
   box-shadow:0 8px 25px rgba(0,0,0,0.3);
@@ -132,14 +100,10 @@ body{
 
 /* WHATSAPP */
 .whatsapp{
-  position:fixed; bottom:20px; right:20px; background:#25D366; padding:15px 18px; border-radius:50%;
+  position:fixed; right:20px; background:#25D366; padding:15px 18px; border-radius:50%;
   text-decoration:none; color:white; font-size:22px; box-shadow:0 0 15px rgba(0,0,0,0.4); transition:0.3s;
   z-index:100; /* siempre arriba */
-}
-@media(max-width:768px){
-  .whatsapp{
-    bottom:calc(20px + 30px); /* margen extra para que no tape footer */
-  }
+  bottom:20px;
 }
 
 /* FOOTER */
@@ -164,7 +128,6 @@ footer a:hover{color:#38bdf8;}
   .flip-card{width:90%; height:380px; margin:0 auto;}
   .touch-hint{display:block;} /* Mostrar indicación en móviles */
 }
-
 </style>
 
 </head>
@@ -239,7 +202,7 @@ footer a:hover{color:#38bdf8;}
 
 <a href="https://wa.me/50661961136" class="whatsapp">💬</a>
 
-<footer>
+<footer id="footer">
   © 2026 MontZu CR - Costa Rica | 
   <a href="privacidad.html" target="_blank">Aviso de Privacidad</a> | 
   <a href="https://www.instagram.com/montzuvisas/" target="_blank">Instagram</a>
@@ -249,11 +212,28 @@ footer a:hover{color:#38bdf8;}
 function toggleMenu(){
   document.getElementById("navMenu").classList.toggle("active");
 }
+
+// Navbar scroll
 window.addEventListener("scroll", function(){
   const navbar = document.getElementById("navbar");
   if(window.scrollY > 50){ navbar.classList.add("scrolled"); }
   else{ navbar.classList.remove("scrolled"); }
+  
+  // Ajuste del WhatsApp para que no tape footer
+  const whatsapp = document.querySelector('.whatsapp');
+  const footer = document.getElementById('footer');
+  const footerTop = footer.getBoundingClientRect().top;
+  const windowHeight = window.innerHeight;
+  const offset = 20; // margen mínimo desde footer
+
+  if(footerTop < windowHeight - offset){
+    whatsapp.style.bottom = `${windowHeight - footerTop + offset}px`;
+  } else {
+    whatsapp.style.bottom = '20px';
+  }
 });
+
+// Animación de secciones
 const sections = document.querySelectorAll(".section");
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add("visible"); } });
